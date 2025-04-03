@@ -1,7 +1,7 @@
+import InputContainer from './components/InputContainer';
+
 function App() {
-  return (
-    <h1>React Investment Calculator</h1>
-  )
+  return <InputContainer />;
 }
 
-export default App
+export default App;
