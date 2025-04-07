@@ -1,24 +1,52 @@
-export default function InputContainer() {
+export default function InputContainer({ initialInput, onInputChange }) {
   return (
     <div id="user-input">
-      <div class="input-group">
+      <div className="input-group">
         <div>
-          <label for="init-inv">Initial Investment</label>
-          <input name="init-inv" type="number"></input>
+          <label>Initial Investment</label>
+          <input
+            name="initialInvestment"
+            type="number"
+            value={initialInput.initialInvestment}
+            onChange={event =>
+              onInputChange(event.target.name, event.target.value)
+            }
+          ></input>
         </div>
         <div>
-          <label for="ann-inv">Annual Investment</label>
-          <input name="ann-inv" type="number"></input>
+          <label>Annual Investment</label>
+          <input
+            name="annualInvestment"
+            type="number"
+            value={initialInput.annualInvestment}
+            onChange={event =>
+              onInputChange(event.target.name, event.target.value)
+            }
+          ></input>
         </div>
       </div>
-      <div class="input-group">
+      <div className="input-group">
         <div>
-          <label for="return">Expected Return</label>
-          <input name="return" type="number"></input>
+          <label>Expected Return</label>
+          <input
+            name="expectedReturn"
+            type="number"
+            value={initialInput.expectedReturn}
+            onChange={event =>
+              onInputChange(event.target.name, event.target.value)
+            }
+          ></input>
         </div>
         <div>
-          <label for="duration">Duration</label>
-          <input name="duration" type="number"></input>
+          <label>Duration</label>
+          <input
+            name="duration"
+            type="number"
+            value={initialInput.duration}
+            onChange={event =>
+              onInputChange(event.target.name, event.target.value)
+            }
+          ></input>
         </div>
       </div>
     </div>
