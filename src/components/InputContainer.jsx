@@ -1,13 +1,16 @@
 export default function InputContainer({ initialInput, onInputChange }) {
+  const { initialInvestment, annualInvestment, expectedReturn, duration } =
+    initialInput;
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
         <div>
           <label>Initial Investment</label>
           <input
             name="initialInvestment"
             type="number"
-            value={initialInput.initialInvestment}
+            required
+            value={initialInvestment}
             onChange={event =>
               onInputChange(event.target.name, event.target.value)
             }
@@ -18,7 +21,8 @@ export default function InputContainer({ initialInput, onInputChange }) {
           <input
             name="annualInvestment"
             type="number"
-            value={initialInput.annualInvestment}
+            required
+            value={annualInvestment}
             onChange={event =>
               onInputChange(event.target.name, event.target.value)
             }
@@ -31,7 +35,8 @@ export default function InputContainer({ initialInput, onInputChange }) {
           <input
             name="expectedReturn"
             type="number"
-            value={initialInput.expectedReturn}
+            required
+            value={expectedReturn}
             onChange={event =>
               onInputChange(event.target.name, event.target.value)
             }
@@ -42,13 +47,14 @@ export default function InputContainer({ initialInput, onInputChange }) {
           <input
             name="duration"
             type="number"
-            value={initialInput.duration}
+            required
+            value={duration}
             onChange={event =>
               onInputChange(event.target.name, event.target.value)
             }
           ></input>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,6 +1,7 @@
-import { formatter } from '../util/investment';
+import { calculateInvestmentResults, formatter } from '../util/investment';
 
-export default function OutputTable({ tableData, initialInput }) {
+export default function OutputTable({ initialInput }) {
+  const tableData = calculateInvestmentResults(initialInput);
   const { initialInvestment } = initialInput;
 
   return (
