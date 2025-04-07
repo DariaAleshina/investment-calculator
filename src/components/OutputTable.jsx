@@ -1,4 +1,8 @@
-export default function OutputTable() {
+import { formatter } from '../util/investment';
+
+export default function OutputTable({ tableData, initialInput }) {
+  const { initialInvestment } = initialInput;
+
   return (
     <table id="result">
       <thead>
@@ -11,13 +15,20 @@ export default function OutputTable() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>$10000</td>
-          <td>$10000</td>
-          <td>$10000</td>
-          <td>$10000</td>
-        </tr>
+        {tableData.map(row => {
+          const { year, interest, valueEndOfYear, annualInvestment } = row;
+          const investedCapital = initialInvestment + annualInvestment * year;
+
+          return (
+            <tr key={year}>
+              <td>{year}</td>
+              <td>{formatter.format(valueEndOfYear)}</td>
+              <td>{formatter.format(interest)}</td>
+              <td>{formatter.format(valueEndOfYear - investedCapital)}</td>
+              <td>{formatter.format(investedCapital)}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

@@ -15,8 +15,10 @@ const INITIAL_STATE = {
 };
 function App() {
   const [state, setStateUpdate] = useState(INITIAL_STATE);
+
   const handleInputChange = function (field, value) {
     console.log(field, value);
+    if (value < 0) return;
     setStateUpdate(prevState => {
       const newInput = { ...prevState.input, [field]: value };
       console.log(newInput);
@@ -37,7 +39,7 @@ function App() {
         initialInput={state.input}
         onInputChange={handleInputChange}
       />
-      <OutputTable tableData={state.table} />
+      <OutputTable tableData={state.table} initialInput={state.input} />
     </>
   );
 }
