@@ -12,11 +12,8 @@ function App() {
   const [state, setStateUpdate] = useState(INITIAL_STATE);
 
   const handleInputChange = function (field, value) {
-    console.log(field, value, typeof value);
     if (value < 0) return;
     setStateUpdate(prevState => {
-      const newInput = { ...prevState.input };
-
       return {
         ...prevState,
         [field]: +value,
